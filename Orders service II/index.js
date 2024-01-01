@@ -12,7 +12,7 @@ let data = JSON.parse(rawData);
 app.get("/api/purchase/:itemNumber", async (req, res) => {
   const itemNumber = req.params.itemNumber;
   const itemExistResponse = await axios.get(
-    `http://172.16.0.20:3333/api/info/${itemNumber}`
+    `http://catalogservice:3333/api/info/${itemNumber}`
   );
   if (!itemExistResponse.data[0].numberInStock) {
     res.send("item is out of stock");
@@ -23,11 +23,11 @@ app.get("/api/purchase/:itemNumber", async (req, res) => {
 
     try {
       const response = await axios.put(
-        "http://172.16.0.20:3333/api/updateNumberInStock",
+        "http://catalogservice:3333/api/updateNumberInStock",
         updateData
       );
       const response2 = await axios.put(
-        "http://172.16.0.20:3334/api/updateNumberInStock",
+        "http://catalogserviceii:3334/api/updateNumberInStock",
         updateData
       );
       const newRecord = {
@@ -35,7 +35,7 @@ app.get("/api/purchase/:itemNumber", async (req, res) => {
         itemNumber: itemNumber,
       };
       const response3 = await axios.put(
-        "http://172.16.0.20:4444/api/newRecord",
+        "http://ordersservice:4444/api/newRecord",
         newRecord
       );
 

@@ -16,7 +16,7 @@ app.get("/api/purchase/:itemNumber", async (req, res) => {
 
   // Check if the item exists and is in stock
   const itemExistResponse = await axios.get(
-    `http://172.16.0.20:3333/api/info/${itemNumber}`
+    `http://catalogservice:3333/api/info/${itemNumber}`
   );
 
   if (!itemExistResponse.data[0].numberInStock) {
@@ -31,11 +31,11 @@ app.get("/api/purchase/:itemNumber", async (req, res) => {
     try {
       // Update the number of items in stock on different servers
       const response = await axios.put(
-        "http://172.16.0.20:3333/api/updateNumberInStock",
+        "http://catalogservice:3333/api/updateNumberInStock",
         updateData
       );
       const response2 = await axios.put(
-        "http://172.16.0.20:3334/api/updateNumberInStock",
+        "http://catalogserviceii:3334/api/updateNumberInStock",
         updateData
       );
 
@@ -47,7 +47,7 @@ app.get("/api/purchase/:itemNumber", async (req, res) => {
 
       // Update the order records on a different server
       const response3 = await axios.put(
-        "http://172.16.0.20:4445/api/newRecord",
+        "http://ordersserviceii:4445/api/newRecord",
         newRecord
       );
 

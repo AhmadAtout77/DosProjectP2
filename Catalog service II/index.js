@@ -32,7 +32,7 @@ app.put("/api/updateNumberInStock", async (req, res) => {
     fs.writeFileSync("db.json", JSON.stringify(data, null, 2));
 
     const response = axios.get(
-      `http://172.16.0.20:2222/api/updatedRecord/${req.body.itemNumber}`
+      `http://frontend:2222/api/updatedRecord/${req.body.itemNumber}`
     );
     console.log(response);
     res.send(true);

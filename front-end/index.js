@@ -6,8 +6,14 @@ const ordersRoundRobinMiddleware = require("./middleware/ordersRoundRobin");
 const cache = require("memory-cache");
 const { performance } = require("perf_hooks");
 
-const catalogTargets = ["http://172.16.0.20:3333", "http://172.16.0.20:3334"];
-const ordersTargets = ["http://172.16.0.20:4444", "http://172.16.0.20:4445"];
+const catalogTargets = [
+  "http://catalogservice:3333",
+  "http://catalogserviceii:3334",
+];
+const ordersTargets = [
+  "http://ordersservice:4444",
+  "http://ordersserviceii:4445",
+];
 
 const app = express();
 app.use(express.json());

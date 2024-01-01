@@ -54,7 +54,7 @@ app.put("/api/updateNumberInStock", async (req, res) => {
 
     // Notify the cache about the updated record by making an HTTP request
     const response = await axios.get(
-      `http://172.16.0.20:2222/api/updatedRecord/${req.body.itemNumber}`
+      `http://frontend:2222/api/updatedRecord/${req.body.itemNumber}`
     );
 
     // Send a response indicating a successful update
