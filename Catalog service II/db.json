@@ -1,0 +1,31 @@
+[
+  {
+    "itemNumber": 1,
+    "title": "How to get a good grade in DOS in 40 minutes a day",
+    "topic": "distributed systems",
+    "numberInStock": 20,
+    "cost": 25.99
+  },
+  {
+    "itemNumber": 2,
+    "title": "RPCs for Noobs",
+    "topic": "distributed systems",
+    "numberInStock": 22,
+    "cost": 19.99,
+    "numberinStock": 66
+  },
+  {
+    "itemNumber": 3,
+    "title": "Xen and the Art of Surviving Undergraduate School",
+    "topic": " undergraduate school",
+    "numberInStock": 19,
+    "cost": 32.99
+  },
+  {
+    "itemNumber": 4,
+    "title": "Cooking for the Impatient Undergrad",
+    "topic": " undergraduate school",
+    "numberInStock": 0,
+    "cost": 14.99
+  }
+]
